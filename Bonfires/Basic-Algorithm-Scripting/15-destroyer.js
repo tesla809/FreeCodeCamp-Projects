@@ -1,3 +1,12 @@
+/*
+Bonfire: Falsy Bouncer
+Remove all falsy values from an array.
+
+Falsy values in javascript are false, null, 0, "", undefined, and NaN.
+
+Remember to use Read-Search-Ask if you get stuck. Write your own code.
+*/
+
 function destroyer(arr) {
     var argsArr = Array.prototype.slice.call(arguments);
     var target = argsArr[0];
