@@ -1,3 +1,7 @@
+/*
+Compare two arrays and return a new array with any items only found in one of the original arrays.
+*/
+
 function diff(arr1, arr2) {
   // compare each element to each other
     // cycle one element of first array
