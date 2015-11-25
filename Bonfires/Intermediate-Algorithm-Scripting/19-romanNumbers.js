@@ -19,7 +19,7 @@ function convert(num) {
     console.log(number);
     
     // 1000s
-    if (number/1000 > 1 && number/1000 < 10){
+    if (number/1000 >= 1 && number/1000 < 10){
         numPlace = Math.floor(number/1000);
         roman.push(repeat("M",numPlace));
         number = number % 1000;
@@ -27,7 +27,7 @@ function convert(num) {
     } 
     
     // 100's
-    if (number/100 > 1 && number/1000 < 10){
+    if (number/100 >= 1 && number/1000 < 10){
         numPlace = Math.floor(number/100);
         // 900
         if (numPlace === 9){
@@ -44,7 +44,7 @@ function convert(num) {
             roman.push("CD");
         }
         // 300 or less
-        else {
+        else if (numPlace <= 3) {
             roman.push(repeat("C",numPlace));
         }
         
@@ -53,7 +53,7 @@ function convert(num) {
     } 
     
     // 10's
-    if (number/10 > 1 && number/10 < 10){
+    if (number/10 >= 1 && number/10 < 10){
         numPlace = Math.floor(number/10);
         // 90
         if(numPlace === 9){
@@ -72,39 +72,38 @@ function convert(num) {
             roman.push("XL");
         } 
         // 30 or less
-        else if (numPlace <= 3){
+        else if (numPlace <= 3) {
             roman.push(repeat("X",numPlace));
         }
         
         number = number % 10;
-        console.log(number);
     }
     
     // 1's
-    if (number < 10 && number > 0){
+    if (number >= 0 && number < 10 ){
         // 9
         if (number === 9){
             roman.push("IX");
         } 
         // 5 and up
-        else if (number >= 5){
-            numPlace = numPlace - 5;
+       else if (number >= 5){
+            number = number - 5;
             roman.push("V");
-            roman.push(repeat("I",numPlace));
-        } 
+            roman.push(repeat("I",number));
+        }
        // 4
        else if (number === 4){
            roman.push("IV");
        }
        // 3 or less
-       else if (number <= 3) {
-            roman.push(repeat("I",numPlace));            
-       }
+        else if (number <= 3) {
+            roman.push(repeat("I",number));
+        }
        
     }
     
     console.log(number);
-    return roman;
+    return roman.join("");
 }
 
-convert(3331);
+convert(10);
